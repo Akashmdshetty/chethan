@@ -41,10 +41,10 @@ const Profile = () => {
         try {
             const token = localStorage.getItem('token');
             const [portfoliosRes, goalsRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/portfolios', {
+                axios.get('/api/portfolios', {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/career/goals', {
+                axios.get('/api/career/goals', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
             ]);

@@ -32,13 +32,13 @@ const Admin = () => {
             const token = localStorage.getItem('token');
 
             const [statsRes, usersRes, portfoliosRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/admin/stats', {
+                axios.get('/api/admin/stats', {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/admin/users?limit=10', {
+                axios.get('/api/admin/users?limit=10', {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/admin/portfolios?limit=10', {
+                axios.get('/api/admin/portfolios?limit=10', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
             ]);
@@ -64,7 +64,7 @@ const Admin = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
+            await axios.delete(`/api/admin/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success('User deleted');
@@ -79,7 +79,7 @@ const Admin = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/admin/portfolios/${portfolioId}`, {
+            await axios.delete(`/api/admin/portfolios/${portfolioId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success('Portfolio deleted');

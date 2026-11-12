@@ -26,7 +26,7 @@ const SkillGapAnalysis = () => {
             const skillsArray = userSkills.split(',').map(s => s.trim()).filter(s => s);
 
             const { data } = await axios.post(
-                'http://localhost:5000/api/ml/skill-gaps',
+                '/api/ml/skill-gaps',
                 {
                     userSkills: skillsArray,
                     jobDescription: jobDescription

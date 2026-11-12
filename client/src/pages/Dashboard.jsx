@@ -26,7 +26,7 @@ const Dashboard = () => {
     const fetchPortfolios = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/api/portfolios', {
+            const response = await axios.get('/api/portfolios', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setPortfolios(response.data);
@@ -51,7 +51,7 @@ const Dashboard = () => {
         try {
             const token = localStorage.getItem('token');
             const { data } = await axios.post(
-                'http://localhost:5000/api/portfolios',
+                '/api/portfolios',
                 { title: `Portfolio ${portfolios.length + 1}` },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -65,7 +65,7 @@ const Dashboard = () => {
         if (!window.confirm('Delete this portfolio?')) return;
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/portfolios/${id}`, {
+            await axios.delete(`/api/portfolios/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success('Portfolio deleted');
@@ -82,7 +82,7 @@ const Dashboard = () => {
         }
         try {
             const token = localStorage.getItem('token');
-            await axios.post(`http://localhost:5000/api/portfolios/${id}/duplicate`, {}, {
+            await axios.post(`/api/portfolios/${id}/duplicate`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success('Portfolio duplicated successfully');
@@ -96,7 +96,7 @@ const Dashboard = () => {
         try {
             const token = localStorage.getItem('token');
             await axios.put(
-                `http://localhost:5000/api/portfolios/${id}`,
+                `/api/portfolios/${id}`,
                 { isPublic: !currentStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

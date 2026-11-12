@@ -25,7 +25,7 @@ const LearningPath = () => {
     const fetchSavedPaths = async () => {
         try {
             const token = localStorage.getItem('token');
-            const { data } = await axios.get('http://localhost:5000/api/ml/my-learning-paths', {
+            const { data } = await axios.get('/api/ml/my-learning-paths', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setSavedPaths(data);
@@ -47,7 +47,7 @@ const LearningPath = () => {
             const missingArray = missingSkills.split(',').map(s => s.trim()).filter(s => s);
 
             const { data } = await axios.post(
-                'http://localhost:5000/api/ml/learning-path',
+                '/api/ml/learning-path',
                 {
                     currentSkills: skillsArray,
                     targetRole: targetRole,

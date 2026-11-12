@@ -27,7 +27,7 @@ const CareerInsights = () => {
             const skillsArray = skills.split(',').map(s => s.trim()).filter(s => s);
 
             const { data } = await axios.post(
-                'http://localhost:5000/api/ml/career-insights',
+                '/api/ml/career-insights',
                 {
                     skills: skillsArray,
                     experience: experience,

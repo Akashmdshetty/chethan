@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (formData) => {
         try {
             console.log('Attempting login with:', formData.email);
-            const { data } = await axios.post('http://localhost:5000/api/auth/login', formData);
+            const { data } = await axios.post('/api/auth/login', formData);
             console.log('Login response:', data);
 
             // Store token in localStorage
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
     const register = async (formData) => {
         try {
             console.log('Attempting registration:', formData.email);
-            const { data } = await axios.post('http://localhost:5000/api/auth/register', formData);
+            const { data } = await axios.post('/api/auth/register', formData);
             console.log('Registration response:', data);
 
             // Store token in localStorage

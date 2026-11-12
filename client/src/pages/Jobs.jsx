@@ -21,13 +21,13 @@ const Jobs = () => {
     const fetchUserSkills = async () => {
         try {
             const token = localStorage.getItem('token');
-            const { data: portfolios } = await axios.get('http://localhost:5000/api/portfolios', {
+            const { data: portfolios } = await axios.get('/api/portfolios', {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
             if (portfolios.length > 0) {
                 const { data: analysis } = await axios.post(
-                    `http://localhost:5000/api/ml/analyze-portfolio/${portfolios[0]._id}`,
+                    `/api/ml/analyze-portfolio/${portfolios[0]._id}`,
                     {},
                     { headers: { Authorization: `Bearer ${token}` } }
                 );

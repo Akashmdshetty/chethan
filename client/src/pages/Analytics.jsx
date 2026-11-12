@@ -32,7 +32,7 @@ const Analytics = () => {
     const fetchPortfolios = async () => {
         try {
             const token = localStorage.getItem('token');
-            const { data } = await axios.get('http://localhost:5000/api/portfolios', {
+            const { data } = await axios.get('/api/portfolios', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setPortfolios(data);
